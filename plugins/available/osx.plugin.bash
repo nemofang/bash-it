@@ -10,21 +10,6 @@ if [ $(uname) = "Darwin" ]; then
   fi
 fi
 
-function tab() {
-  about 'opens a new terminal tab'
-  group 'osx'
-
-  osascript 2>/dev/null <<EOF
-    tell application "System Events"
-      tell process "Terminal" to keystroke "t" using command down
-    end
-    tell application "Terminal"
-      activate
-      do script with command " cd \"$PWD\"; $*" in window 0
-    end tell
-EOF
-}
-
 # this one switches your os x dock between 2d and 3d
 # thanks to savier.zwetschge.org
 function dock-switch() {

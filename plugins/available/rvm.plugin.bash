@@ -12,11 +12,11 @@ then
     # Load the auto-completion script if RVM was loaded.
     [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
-    switch () {
+    switch_ruby () {
       rvm $1
     }
 
-    switch_default () {
+    switch_default_ruby () {
       rvm --default $1
     }
 

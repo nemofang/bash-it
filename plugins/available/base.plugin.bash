@@ -1,21 +1,6 @@
 cite about-plugin
 about-plugin 'miscellaneous tools'
 
-function ips ()
-{
-    about 'display all ip addresses for this host'
-    group 'base'
-    if command -v ifconfig &>/dev/null
-    then
-        ifconfig | awk '/inet /{ print $2 }'
-    elif command -v ip &>/dev/null
-    then
-        ip addr | grep -oP 'inet \K[\d.]+'
-    else
-        echo "You don't have ifconfig or ip command installed!"
-    fi
-}
-
 function down4me ()
 {
     about 'checks whether a website is down for you, or everybody'
@@ -23,27 +8,6 @@ function down4me ()
     example '$ down4me http://www.google.com'
     group 'base'
     curl -s "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g'
-}
-
-function myip ()
-{
-    about 'displays your ip address, as seen by the Internet'
-    group 'base'
-    res=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
-    echo -e "Your public IP is: ${echo_bold_green} $res ${echo_normal}"
-}
-
-function pickfrom ()
-{
-    about 'picks random line from file'
-    param '1: filename'
-    example '$ pickfrom /usr/share/dict/words'
-    group 'base'
-    local file=$1
-    [ -z "$file" ] && reference $FUNCNAME && return
-    length=$(cat $file | wc -l)
-    n=$(expr $RANDOM \* $length \/ 32768 + 1)
-    head -n $n $file | tail -1
 }
 
 function passgen ()
@@ -58,20 +22,6 @@ function passgen ()
     pass=$(echo $(for i in $(eval echo "{1..$length}"); do pickfrom /usr/share/dict/words; done))
     echo "With spaces (easier to memorize): $pass"
     echo "Without (use this as the password): $(echo $pass | tr -d ' ')"
-}
-
-function pmdown ()
-{
-    about 'preview markdown file in a browser'
-    param '1: markdown file'
-    example '$ pmdown README.md'
-    group 'base'
-    if command -v markdown &>/dev/null
-    then
-      markdown $1 | browser
-    else
-      echo "You don't have a markdown command installed!"
-    fi
 }
 
 function md ()
@@ -170,15 +120,6 @@ function usage ()
             du -h --max-depth=1
         fi
     fi
-}
-
-function command_exists ()
-{
-    about 'checks for existence of a command'
-    param '1: command to check'
-    example '$ command_exists ls && echo exists'
-    group 'base'
-    type "$1" &> /dev/null ;
 }
 
 mkiso ()

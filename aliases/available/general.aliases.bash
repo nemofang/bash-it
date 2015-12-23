@@ -27,10 +27,8 @@ alias lsd='ls -l | grep "^d"' # only directories
 alias ll='ls -l'
 # `la` defined in base plugin
 
-# mv, rm, cp
-alias mv='mv -v'
-alias rm='rm -i -v'
-alias cp='cp -v'
+# rm
+alias rm='rm -i'
 
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
