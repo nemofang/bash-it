@@ -60,11 +60,6 @@ function lsgrep ()
     ls | grep "$*"
 }
 
-# cd into whatever is the forefront Finder window.
-function cdf () {  # short for cdfinder
-  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
-}
-
 # Start an HTTP server from a directory, optionally specifying the port
 function server () {
   local port="${1:-8000}"
@@ -75,7 +70,7 @@ function server () {
 }
 
 # Copy w/ progress
-function cp_p () {
+function cpv () {
   rsync -WavP --human-readable --progress $1 $2
 }
 

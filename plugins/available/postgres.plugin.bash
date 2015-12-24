@@ -1,7 +1,6 @@
 cite about-plugin
 about-plugin 'postgres helper functions'
 
-
 export PGVERSION=`pg_config --version | awk '{print $2}'`
 export POSTGRES_BIN=`pg_config --bindir`
 COMMON_PGDATA_PATHS=("/usr/local/var/postgres" "/var/pgsql" "/Library/Server/PostgreSQL/Data")
@@ -44,11 +43,9 @@ function postgres_status {
   fi
 }
 
-
 function is_postgres_running {
   $POSTGRES_BIN/pg_ctl -D $PGDATA status | egrep -o "no server running"
 }
-
 
 function postgres_restart {
   about 'Restarts status of PostgresSQL server'

@@ -10,6 +10,11 @@ if [ $(uname) = "Darwin" ]; then
   fi
 fi
 
+# cd into whatever is the forefront Finder window.
+function cdf () {  # short for cdfinder
+  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+}
+
 # this one switches your os x dock between 2d and 3d
 # thanks to savier.zwetschge.org
 function dock-switch() {
