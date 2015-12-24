@@ -2,9 +2,6 @@
 
 # Bash History Handling
 
-# timestamps for later analysis. www.debian-administration.org/users/rossen/weblog/1
-export HISTTIMEFORMAT='%F %T '
-
 # keep history up to date, across sessions, in realtime
 #  http://unix.stackexchange.com/a/48113
 export HISTCONTROL=ignoredups:erasedups         # no duplicate entries
