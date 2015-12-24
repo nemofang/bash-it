@@ -20,8 +20,13 @@ fi
 # Get rid of those pesky .DS_Store files recursively
 alias dsclean='find . -type f -name .DS_Store -delete'
 
+# Empty the Trash on all mounted volumes and the main HDD. then clear the useless sleepimage
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
+
 # Flush your dns cache
 alias flush='dscacheutil -flushcache'
+
+alias hosts='sudo subl /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
 # Show/hide hidden files (for Mac OS X Mavericks)
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE"

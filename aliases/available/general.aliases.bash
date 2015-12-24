@@ -30,8 +30,6 @@ alias ll='ls -l'
 # rm
 alias rm='rm -i'
 
-alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
-
 which gshuf &> /dev/null
 if [ $? -eq 0 ]
 then
@@ -64,9 +62,6 @@ alias undopush="git push -f origin HEAD^:master"
 
 # git root
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-
-# Empty the Trash on all mounted volumes and the main HDD. then clear the useless sleepimage
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
