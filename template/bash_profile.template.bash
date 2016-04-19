@@ -51,3 +51,6 @@ shopt -s cdspell;
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
+
+# Configure your shell for Docker client
+eval $(docker-machine env default)
